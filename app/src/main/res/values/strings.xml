@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My First App</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="APIKey">AIzaSyBvwuw8nAtQ-wnr_I1Iy7P7l2lnzKj4ZmA</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
