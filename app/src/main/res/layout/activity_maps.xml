@@ -48,4 +48,16 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btnRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="390dp"
+        android:onClick="removeMarkers"
+        android:text="Remove Pins"
+        android:visibility="visible" />
+
 </RelativeLayout>
