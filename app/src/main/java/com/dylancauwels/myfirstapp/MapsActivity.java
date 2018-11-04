@@ -32,6 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //widgets
     private EditText mSearchText;
     private Button btnRemove;
+    private TextView countryDescription, countryText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         btnRemove = (Button) findViewById(R.id.btnRemove);
+        countryDescription = (TextView) findViewById(R.id.countryDescription);
+        countryText = (TextView) findViewById(R.id.countryText);
     }
 
 
@@ -60,11 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         init();
-        //hideKeyboard();
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        hideKeyboard();
     }
 
     private void init() {
@@ -99,6 +98,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocation));
             hideKeyboard();
             btnRemove.setVisibility(View.VISIBLE);
+            countryDescription.setVisibility(View.VISIBLE);
+            countryText.setText(address.getCountryName());
         }
     }
 
@@ -109,5 +110,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void removeMarkers(View view) {
         mMap.clear();
         btnRemove.setVisibility(View.GONE);
+        countryDescription.setVisibility(View.INVISIBLE);
+        countryText.setText("");
     }
 }
